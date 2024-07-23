@@ -33,5 +33,12 @@ var input = document.querySelector("form input")
 form.addEventListener("submit", function (e) {
     e.preventDefault()
     var user = input.value
-    console.log(user);
+    localStorage.setItem('username', user)
+    formDiv.style.display = "none"
+    main.style.display = "initial"
 })
+if(localStorage.length>0){
+    formDiv.style.display = "none"
+    main.style.display = "initial"
+}
+// localStorage.clear()
