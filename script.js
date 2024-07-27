@@ -109,5 +109,15 @@ setTimeout(function () {
 
   page1Loading();
 }, 3100);
-
+gsap.to("#page2",{
+  backgroundColor:"#388699",
+  scrollTrigger:{
+    trigger:"#page2",
+    scroller:"body",
+    // markers:true,
+    start:"top 0%",
+    end:"top -20%",
+    scrub:2
+  }
+})
 // localStorage. clear()
