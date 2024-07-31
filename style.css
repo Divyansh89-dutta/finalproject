@@ -24,7 +24,7 @@ body {
     background-color: #D6E2E5;
 
     position: fixed;
-    z-index: 999;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,7 +155,7 @@ body {
 }
 
 #form-div-bottom img:nth-child(1) {
-    height: 11vw;
+    height: 10vw;
 }
 
 #form-div-bottom img:nth-child(2) {
@@ -186,21 +186,58 @@ form {
 }
 
 form h4 {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-family: "gilroy";
 }
 
 form input {
     width: 70%;
-    padding: 12px 30px;
-    margin-top: 1vw;
+    /* padding: 12px 30px; */
+    margin-top: 0.5vw;
     text-align: center;
+    background-color: transparent;
     outline: none;
+    font-family: "primary";
+    font-weight: 400;
     border: none;
-    font-size: 3.5vw;
+    font-size: 5.5vw;
+    color: white;
+    font-family: "gilroy";
+    /* background-color: white; */
+    /* cursor: pointer; */
+    z-index: 99;
+} 
+form img{
+    width: 18px;
+    position: absolute;
+    top: 70%;
+    
+}
+form img:nth-child(2){
+    left: 13%;
+    top: 67%;
+}
+form img:nth-child(5){
+    right: 13%;
+    rotate: 270deg;
+    top: 67%;
 }
 
+
+form img:nth-child(3){
+    top: 43%;
+    right: 13%;
+    transform: rotate(180deg);
+    
+}
+
+form img:nth-child(4){
+    left: 13%;
+    top: 43%;
+    transform: rotate(90deg);
+}
 form button {
     padding: 20px 30px;
     font-size: 1vw;
@@ -268,10 +305,11 @@ form button:hover::after {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    transform: translateY(-7%);
+    transform: translateY(14%);
 }
 
 #page1-hero h3 {
+    margin-top: 0.8vw;
     font-size: 1.2vw;
     color: #154359;
 
@@ -288,7 +326,7 @@ form button:hover::after {
 
 #page1-content #bg-img1 {
     left: 0%;
-    width: 63vw;
+    width: 61.5vw;
     top: -19%;
     position: absolute;
 }
@@ -301,12 +339,12 @@ form button:hover::after {
 
 #page2{
     min-height: 100vh;
-    background: #5194A4;
+    background: #D6E2E5;
     margin-top: -0.8vw;
     padding: 40vh 0;
 }
 #page2-content{
-    height: 100vh;
+    height: 120vh;
     width: 100%;
     position: relative;
 }
@@ -328,28 +366,30 @@ form button:hover::after {
     gap: 1vw;
     text-align: center;
     color: #fff;
-    font-family: primary;
+    font-family: "gilroy";
 }
 
 #page2-content-text h4{
-    font-size: 1vw;
-    font-weight: 100;
+    font-size: 1.2vw;
+    font-weight: 500;
 
 }
 #page2-content-text h2{
-    font-size: 2.9vw;
-    font-weight: 100;
+    font-size: 3.2vw;
+    font-weight: 400;
+    padding: 0 20vw;
+
 }
+
 #page2-content-text p{
-    font-size: 1.1vw;
-    margin-top: 2vw;
-    font-weight: 100;
+    font-size: 1.2vw;
+    margin-top: 1.3vw;
+    font-weight: 500;
 
 }
 #page3{
     min-height: 100vh;
     background: #D6E2E5;
-
     padding: 30vh 10vw;
     text-align: center;
 }
@@ -416,4 +456,39 @@ form button:hover::after {
     width: 100%;
     object-fit: cover;
     mix-blend-mode: darken;
+}
+#page4{
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: #D6E2E5;
+    margin-top: -1px;
+    background-image: url(https://cdn.prod.website-files.com/65ef0d86eff3b9ba6b18aef9/65f96092a0c72c74c0e9518d_Frame%201813.png);
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#page4-content{
+    margin-top: -10vw;
+    height: 6vw;
+    overflow: hidden;
+    /* background-color: red; */
+}
+
+
+#page4-content h1{
+    font-size: 5vw;
+    font-weight: 100;
+    color: #154359;
+    text-align: center;
+    font-family: primary;
+    margin-bottom: 1vw;
+    text-transform: uppercase;
+}
+
+#page5{
+    height: 100vh;
 }

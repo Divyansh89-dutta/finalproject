@@ -26,6 +26,7 @@ function locomotiveSetup() {
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
     ScrollTrigger.refresh();
 }
+// locomotiveSetup();
 function formDivAppearance(){
     var form = document.querySelector("form")
     var formDiv = document.querySelector("#form-div")
@@ -109,15 +110,98 @@ setTimeout(function () {
 
   page1Loading();
 }, 3100);
-gsap.to("#page2",{
-  backgroundColor:"#388699",
+function page2Animation() {
+  gsap.to("#page2", {
+    backgroundColor: "#388699",
+    scrollTrigger: {
+      trigger: "#page2",
+      scroller: "body",
+      start: "top 0%",
+      end: "top -20%",
+      scrub: 2,
+    },
+  });
+  var page2h2 = document.querySelector("#page2-content-text h2").textContent;
+
+  var splittedText = page2h2.split(" ");
+
+  var clutter = "";
+
+  splittedText.forEach(function (elem) {
+    clutter += `<span>${elem}</span> `;
+    // console.log(elem)
+  });
+
+  document.querySelector("#page2-content-text h2").innerHTML = clutter;
+
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#page2-content-text h2",
+      start: "top 75%",
+      end: "top 45%",
+      scrub: 3,
+    },
+  });
+  tl.from("#page2-content-text h4", {
+    opacity: 0,
+    duration: 0.5,
+  });
+  tl.from("#page2-content-text h2 span", {
+    opacity: 0,
+    duration: 1,
+    stagger: 0.1,
+    y: 15,
+  });
+  tl.from("#page2-content-text p", {
+    opacity: 0,
+    duration: 0.6,
+  });
+}
+
+page2Animation()
+
+gsap.to("#page3 .page3-side-content",{
+  y:-420,
   scrollTrigger:{
-    trigger:"#page2",
+    trigger:"#page3",
     scroller:"body",
-    // markers:true,
-    start:"top 0%",
-    end:"top -20%",
-    scrub:2
+    start:"top -25%",
+    end:"top -40%",
+    scrub:2,
+    pin:true
   }
 })
+var vr = gsap.timeline({
+  scrollTrigger:{
+    trigger:"#page4",
+    scroller:"body",
+    start:"top 0",
+    end:"top -100%",
+    scrub:1,
+    pin:true
+  }
+})
+
+vr.to("#page4-content-inner",{
+  y:'-7vw',
+  // opacity:0,
+  duration:1,
+  delay:0.5
+},'anim')
+vr.from("#h1two",{
+  opacity:0,
+  duration:1,
+  delay:0.5
+},'anim')
+vr.to("#page4-content-inner",{
+  y:'-14.5vw',
+  // opacity:0,
+  duration:1,
+  delay:0.5
+},'anim2')
+vr.from("#h1three",{
+  opacity:0,
+  duration:1,
+  delay:0.5
+},'anim2')
 // localStorage. clear()
