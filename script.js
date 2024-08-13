@@ -1,4 +1,3 @@
-
 function smoothScrolling() {
   const lenis = new Lenis();
 
@@ -9,8 +8,6 @@ function smoothScrolling() {
 
   requestAnimationFrame(raf);
 }
-
-smoothScrolling()
 
 function formDivAppearance() {
   var formDiv = document.querySelector("#form-div");
@@ -24,6 +21,8 @@ function formDivAppearance() {
     localStorage.setItem("username", user);
     formDiv.style.display = "none";
     main.style.display = "initial";
+
+    page1Loading()
   });
 
   if (localStorage.length > 0) {
@@ -31,8 +30,6 @@ function formDivAppearance() {
     main.style.display = "initial";
   }
 }
-
-formDivAppearance();
 
 function page1Loading() {
   let tl = gsap.timeline();
@@ -99,6 +96,10 @@ function loadingAnimation() {
   tl.to("#loader", {
     top: "-100%",
   });
+  tl.to("#loader",{
+    display:"none",
+    delay:0.5
+  })
 
   setTimeout(function () {
     clearInterval(loaderInterval);
@@ -106,7 +107,6 @@ function loadingAnimation() {
     page1Loading();
   }, 3100);
 }
-loadingAnimation()
 
 function page2Animation() {
   var tl2 = gsap.timeline({
@@ -119,7 +119,7 @@ function page2Animation() {
     },
   });
 
-  tl2.to("#page2, #page3", {
+  tl2.to("#page2, #page3, #page1-content", {
     backgroundColor: "#388699",
   });
   tl2.to("#page2, #page3", {
@@ -162,12 +162,9 @@ function page2Animation() {
     duration: 0.6,
   });
 }
-
-page2Animation();
-
 function page3and4Animation() {
   gsap.to("#page3 .page3-side-content", {
-    y: -340,
+    y: -300,
     scrollTrigger: {
       trigger: "#page3",
       scroller: "body",
@@ -192,7 +189,7 @@ function page3and4Animation() {
   tl.to(
     "#page4-content-inner",
     {
-      y: "-7vw",
+      y: "-12vh",
       duration: 1,
       delay: 0.5,
     },
@@ -210,7 +207,7 @@ function page3and4Animation() {
   tl.to(
     "#page4-content-inner",
     {
-      y: "-14.5vw",
+      y: "-24.5vh",
       duration: 1,
       delay: 0.5,
     },
@@ -225,10 +222,11 @@ function page3and4Animation() {
     },
     "anim2"
   );
-}
-
-page3and4Animation();
-
-
-
 document.querySelector("#certificate-content h1").innerHTML = localStorage.getItem('username')
+}
+loadingAnimation()
+formDivAppearance();
+smoothScrolling()
+page2Animation();
+page3and4Animation();
+// localStorage.clear()
